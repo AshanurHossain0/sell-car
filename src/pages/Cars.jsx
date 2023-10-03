@@ -23,6 +23,9 @@ const Cars = () => {
 
   if(filteredCars.length<=(id-1)*6) navigate("/page/1")
 
+  const start=id*6-5;
+  const end=filteredCars.length<6*id?(filteredCars.length):(6*id)
+
   const prevPage = () => {
     if (id < 2) return;
     navigate(`/page/${id - 1}`)
@@ -50,7 +53,7 @@ const Cars = () => {
         }
       </div>
       <div className='footer  w-full bg-blue-100 h-20 mb-4 rounded-2xl flex items-center px-10 justify-between'>
-        <div className="font-medium text-lg">{id * 6 - 5} to {id * 6}</div>
+        <div className="font-medium text-lg">{start} to {end}</div>
         <div className=" flex gap-4 height-[35px] items-center">
           <div onClick={prevPage} className='cursor-pointer h-[35px] w-[35px] bg-blue-50 rounded-lg flex justify-center items-center'>
             <FontAwesomeIcon icon={faArrowLeft} />
