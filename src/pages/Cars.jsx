@@ -18,7 +18,7 @@ const Cars = () => {
   const navigate = useNavigate();
 
   const { searchQuery } = useSelector(state => state.car)
-  const filteredCars = data?.filter(car => car.name.toLowerCase().includes(searchQuery));
+  const filteredCars = data?.filter(car => car.name.toLowerCase().includes(searchQuery.toLowerCase()));
   const showCars=filteredCars.slice((6*id-6),(6*id))
 
   if(filteredCars.length<=(id-1)*6) navigate("/page/1")
